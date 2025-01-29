@@ -1,0 +1,6 @@
+select max(list_price) as max, min(list_price) as min from production.products;
+select count (*) as total_products, sum(list_price) as total_price, avg(list_price) as avg_price from production.products;
+select top 5 first_name, last_name from sales.customers join sales.orders on customers.customer_id = orders.customer_id	 join sales.stores on orders.store_id = stores.store_id where store_name = 'Santa Cruz Bikes' ;
+SELECT first_name, last_name FROM sales.customers WHERE first_name LIKE '_S%' AND last_name LIKE '%A';
+select distinct first_name, last_name from sales.customers join sales.orders on customers.customer_id = orders.customer_id join sales.order_items on orders.order_id = order_items.order_id join production.products on order_items.product_id = products.product_id where model_year between 2015 and 2017;
+select top 10 first_name, last_name from sales.customers join sales.orders on customers.customer_id = orders.customer_id join sales.stores on orders.store_id = stores.store_id where store_name in ('Santa Cruz Bikes', 'Baldwin Bikes');
